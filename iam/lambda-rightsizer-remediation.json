@@ -1,0 +1,16 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+
+    {
+      "Sid": "LambdaApplyRecommendations",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:UpdateFunctionConfiguration"
+      ],
+      "Resource": "arn:aws:lambda:*:*:function:*",
+      "Condition": {}
+    }
+
+  ]
+}

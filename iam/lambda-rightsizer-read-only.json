@@ -1,0 +1,72 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+
+    {
+      "Sid": "STSValidateIdentity",
+      "Effect": "Allow",
+      "Action": [
+        "sts:GetCallerIdentity"
+      ],
+      "Resource": "*",
+      "Condition": {}
+    },
+
+    {
+      "Sid": "LambdaDiscoverFunctions",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:ListFunctions"
+      ],
+      "Resource": "*",
+      "Condition": {}
+    },
+
+    {
+      "Sid": "CloudWatchLogsInsightsQuery",
+      "Effect": "Allow",
+      "Action": [
+        "logs:StartQuery",
+        "logs:GetQueryResults",
+        "logs:StopQuery"
+      ],
+      "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/*",
+      "Condition": {}
+    },
+
+    {
+      "Sid": "CloudWatchLogsFilterEvents",
+      "Effect": "Allow",
+      "Action": [
+        "logs:FilterLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:*:*:log-group:/aws/lambda/*",
+        "arn:aws:logs:*:*:log-group:/aws/lambda/*:log-stream:*"
+      ],
+      "Condition": {}
+    },
+
+    {
+      "Sid": "CloudWatchLogsDescribeGroups",
+      "Effect": "Allow",
+      "Action": [
+        "logs:DescribeLogGroups"
+      ],
+      "Resource": "arn:aws:logs:*:*:log-group:/aws/lambda/*",
+      "Condition": {}
+    },
+
+    {
+      "Sid": "CloudWatchMetricsRead",
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics"
+      ],
+      "Resource": "*",
+      "Condition": {}
+    }
+
+  ]
+}
